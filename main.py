@@ -9,14 +9,14 @@ app = FastAPI()
 def isGPT2ModelAvailable():
     gpt2ModelFolder = path.relpath("models/GPT2")
     if(os.path.isdir(gpt2ModelFolder)):
-         try:            
-            tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
-            model = GPT2LMHeadModel.from_pretrained("gpt2",pad_token_id = tokenizer.eos_token_id)
-            tokenizer.save_pretrained(gpt2ModelFolder)
-            model.save_pretrained(gpt2ModelFolder)
-            return True
-         except:
-             return False
+         #try:            
+        tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+        model = GPT2LMHeadModel.from_pretrained("gpt2",pad_token_id = tokenizer.eos_token_id)
+        tokenizer.save_pretrained(gpt2ModelFolder)
+        model.save_pretrained(gpt2ModelFolder)
+            #return True
+        # except:
+             #return False
 
     else:
         return False    
