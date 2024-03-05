@@ -5,7 +5,7 @@ from os import path
 
 app = FastAPI()
 
-@app.get("/isGPT2ModelAvailable")
+@app.get("/CMSAI/isGPT2ModelAvailable")
 def isGPT2ModelAvailable():
     gpt2ModelFolder = path.relpath("models/GPT2")
     if(os.path.isdir(gpt2ModelFolder)):
@@ -21,7 +21,7 @@ def isGPT2ModelAvailable():
     else:
         return False    
 
-@app.post("/GPT2Model")
+@app.post("/CMSAI/GPT2Model")
 def textGenerationUsingGPT2(input:str):
     gpt2ModelFolder = path.relpath("models/GPT2")
     tokenizer = GPT2Tokenizer.from_pretrained(gpt2ModelFolder)
