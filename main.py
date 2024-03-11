@@ -2,8 +2,19 @@ from fastapi import FastAPI
 from transformers import GPT2LMHeadModel,GPT2Tokenizer
 import os
 from os import path
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+    
+)
 
 @app.get("/CMSAI/isGPT2ModelAvailable")
 def isGPT2ModelAvailable():
